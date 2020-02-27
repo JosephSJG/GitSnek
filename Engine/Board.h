@@ -19,7 +19,6 @@ private:
 	static constexpr int dimension = 20;
 	static constexpr int width = 30;
 	static constexpr int height = 20;
-	//random change
 	Graphics& gfx;
 
 

@@ -28,6 +28,7 @@
 #include "Location.h"
 #include "Snek.h"
 #include "Goal.h"
+#include "FrameTimer.h"
 
 class Game
 {
@@ -43,13 +44,13 @@ private:
     bool KeyUnlocked = true;
     bool GameStarted = false;
     bool EnterPressed = false;
-    int snekMovePeriod = 15;
-    int snekMoveCounter = 0;
-    static constexpr int snekMoveChangePeriod = 4;
-    int snekMoveChangeCounter = 0;
+    float snekMovePeriod = 0.4f;
+    float snekMoveCounter = 0.0f;
+   
     MainWindow& wnd;
     Graphics gfx;
     Board brd;
+    FrameTimer td;
     std::mt19937 rng;
     Snek snek;
     Location delta_loc = { 0,0 };

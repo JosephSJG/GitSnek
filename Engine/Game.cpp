@@ -78,7 +78,7 @@ void Game::UpdateModel()
 
         if (GameStarted)
         {
-                snekMoveCounter++;
+                snekMoveCounter += td.Mark();
                 if (snekMoveCounter >= snekMovePeriod)
                 {
                     KeyUnlocked = true;
@@ -95,13 +95,7 @@ void Game::UpdateModel()
                         if (eating)
                         {
                             snek.Grow(ColorChange);
-                            snekMoveChangeCounter++;
-
-                            if (snekMoveChangeCounter >= snekMoveChangePeriod)
-                            {
-                                snekMovePeriod--;
-                                snekMoveChangeCounter = 0;
-                            }
+                            snekMovePeriod *= 2/3;
                         }
                         snek.MoveBy(delta_loc);
                         if (eating)
